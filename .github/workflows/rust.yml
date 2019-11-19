@@ -17,8 +17,9 @@ jobs:
   build-macos:
     runs-on: macos-latest
     steps:
-    - name: Install dependencies
-      run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      run: |
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        source $HOME/.cargo/env
     - name: Checkout repository
       uses: actions/checkout@v1
     - name: Build
