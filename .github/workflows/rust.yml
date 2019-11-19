@@ -18,12 +18,12 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Install dependencies
-      run: |
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-        source $HOME/.cargo/env
+      run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     - name: Checkout repository
       uses: actions/checkout@v1
     - name: Build
-      run: cargo build -p makepad --verbose
+      run: |
+        source $HOME/.cargo/env
+        cargo build -p makepad --verbose
     - name: Run tests
       run: cargo test -p makepad --verbose
