@@ -26,4 +26,6 @@ jobs:
         source $HOME/.cargo/env
         cargo build -p makepad --verbose
     - name: Run tests
-      run: cargo test -p makepad --verbose
+      run: |
+        source $HOME/.cargo/env
+        cargo test -p makepad --verbose
